@@ -1,0 +1,28 @@
+.newBillCard {
+    height: 270px;
+}
+
+.dataCard {
+    height: 47px;
+}
+
+.itemCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: super;
+    border-radius: 12px;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 99999 !important;
+ }
+
+ .modal-content {
+   width: 71% !important;
+ }

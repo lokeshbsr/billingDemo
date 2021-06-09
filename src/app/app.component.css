@@ -1,0 +1,15 @@
+
+.displayCard {
+    display: flex;
+    flex-direction: row;
+}
+
+
+@media  (min-width: 576px) { 
+    .displayCard {
+        display: column;
+        flex-direction: row;
+    }
+ }
+
+ .cdk-global-overlay-wrapper, .cdk-overlay-container { z-index: 9999!important; } 

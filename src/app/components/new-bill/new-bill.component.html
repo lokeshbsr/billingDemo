@@ -1,0 +1,68 @@
+<div class="container-fluid mt-3">
+    <div class="row px-3">
+      <div class="col-md-6 mr-2 pr-2">
+        <div>
+            <mat-card class="newBillCard">
+                <div class="d-flex justify-content-between">
+                    <h3 class="card-title">New Bill</h3>
+                    <div class="d-flex flex-col">
+                      <p class="backGroundColor">Cart<span class="itemCartCount">{{cartCount}}</span></p>
+                      <i class="fa fa-plus pt-2 mx-1 cursor backGroundColor" aria-hidden="true" (click)="openSelectItem(mymodal)"></i>
+                    </div>
+                </div>
+                <div class="card mx-3 dataCard" *ngFor="let item of newBillList">
+                    <div class="d-flex justify-content-between  border-dark">
+                        <p>{{item.itemName}} <br>Quantity:{{item.itemQunatity}}</p>
+                        <p>Rs. {{item.Amount}}</p>
+                    </div>
+                </div>
+            </mat-card>
+            <div class="card my-auto dataCard">
+                    <div class="d-flex justify-content-between p-3 border-dark">
+                        <p>Amount: Rs. {{totalBillAmount}}</p>
+                        <i class="fa fa-save  cursor backGroundColor"style="font-size:24px" aria-hidden="true" (click)="onGenerate()"></i>
+                        <p>Total Items: {{totalItems}}</p>
+                    </div>
+            </div>
+        </div>
+            
+            <ng-template #mymodal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Select Item</h4>
+                <i class="fa fa-times cursor" aria-hidden="true" #closeAddExpenseModal (click)="modal.dismiss('Cross click')"></i>
+              </div>
+              <div class="containerModal">
+                    <mat-form-field class="mx-auto">
+                        <mat-label>Select Item</mat-label>
+                        <mat-select [(ngModel)]="selectedItemValue" (selectionChange)="updateItemAmount()">
+                          <mat-option *ngFor="let item of itemsAvailableList" [value]="item.value">
+                            {{item.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    <mat-form-field class="mx-auto">
+                      <mat-label>Quantity</mat-label>
+                      <input type="number" matInput placeholder="Quantity" [(ngModel)]="quantity">
+                    </mat-form-field>
+              </div>
+              <div class="modal-footer">
+                <button mat-flat-button color="accent" (click)="onAddItem()">Add</button>
+              </div>
+            </ng-template>
+      </div>
+      <div class="col-md-6">
+        <app-items></app-items>
+      </div>
+    </div>
+    <div class="row px-3">
+      <div class="col-md-6">
+        <app-my-bills [saleBillsList]="generatedBillsList"></app-my-bills>
+      </div>
+      <div class="col-md-6">
+        <app-sales [finalSalesAmount]="finalAmountSalesList"></app-sales>
+      </div>
+    </div>
+</div>
+
+
+

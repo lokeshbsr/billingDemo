@@ -1,0 +1,19 @@
+<div class="card">
+    <div>
+        <mat-card class="newBillCard">
+            <div class="d-flex justify-content-between">
+                <h3 class="card-title">Sales</h3>
+            </div>
+            <div class="mx-3 dataCard" >
+                <div class="d-flex justify-content-between  border-dark">
+                    <div class="card grid" *ngFor="let sale of finalSalesAmount">
+                        <div class="marginauto">
+                            <p>Rs. {{sale.amount}}</p>
+                            <p>{{sale.type}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

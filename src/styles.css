@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.backGroundColor {
+    color: #23d2e4e0;
+}
+
+.containerModal{
+    display: flex;
+    flex-flow: column;
+}
